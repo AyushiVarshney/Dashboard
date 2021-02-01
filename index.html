@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <title>Responsive Page</title>
+  </head>
+  <body>
+
+    <div class="grid-container">
+        
+        <aside class="sidenav">
+            <ul class="sidenav__list">
+              <li class="sidenav__list-item">Dashboard</li>
+              <li class="sidenav__list-item">Restaurant's</li>
+              <li class="sidenav__list-item">Manage User's</li>
+              <li class="sidenav__list-item">manage Orders</li>
+              <li class="sidenav__list-item">Manage Coupons</li>
+            </ul>
+        </aside>
+        <div class="main">
+        <div class="main-overview">
+            <div class="overviewcard">
+              <div class="overviewcard__icon">
+                <i class="fas fa-box" style="color:#26F0EC"></i>
+              </div>
+              <div class="overviewcard__info">
+                <h1 class="overviewCard-title" id="totalOrders"></h1>
+                <p class="overviewCard-subtitle">TOTAL ORDERS</p>
+              </div>
+              
+            </div>
+            <div class="overviewcard">
+                <div class="overviewcard__icon">
+                    <i class="far fa-check-circle" style="color:rgba(0, 230, 64, 1)"></i>
+                </div>
+                <div class="overviewcard__info">
+                    <h1 class="overviewCard-title" >280</h1>
+                    <p class="overviewCard-subtitle">TOTAL COMPLETED ORDERS</p>
+                </div>
+            </div>
+            <div class="overviewcard">
+                <div class="overviewcard__icon">
+                    <i class="fas fa-clipboard-list" style="color:rgba(54, 162, 235, 1)"></i>
+                </div>
+                <div class="overviewcard__info">
+                    <h1 class="overviewCard-title" >20</h1>
+                    <p class="overviewCard-subtitle">TOTAL PENDING ORDERS</p>
+                </div>
+            </div>
+            <div class="overviewcard">
+                <div class="overviewcard__icon">
+                    <i class="fas fa-times" style="color:red"></i>
+                </div>
+                <div class="overviewcard__info">
+                    <h1 class="overviewCard-title" >52</h1>
+                    <p class="overviewCard-subtitle">TOTAL CANCELLED ORDERS</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-cards">
+            <div class="card">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>TOTAL SALES</p>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="saledropdown" name="saledropdown" onchange="saleDrpChange(this.value)"> 
+                                <option value="yearly">Yearly</option>
+                                <option value="monthly">This Month</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+                <canvas id="totalSales"></canvas>
+            </div>
+            <div class="card">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>ORDER BREAKDOWN</p>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="saledropdown" name=""> 
+                                <option value="monthly">This Month</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <canvas id="orderBreakDown"></canvas>
+            </div>
+            <div class="card">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>NEW USERS</p>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="saledropdown" name=""> 
+                                <option value="monthly">This Month</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <canvas id="newUsers"></canvas>
+            </div>
+            <div class="card">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6"><p>COUPON USAGE</p></div>
+                        <div class="col-md-6"><p style="float:right">This Weak</p></div>
+                    </div>
+                </div>
+                <canvas id="couponUsage"></canvas>
+            </div>
+        </div>
+    </div>
+    <form>  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
